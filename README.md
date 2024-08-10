@@ -23,7 +23,8 @@ import 'package:restart_app/restart_app.dart';
 ```dart
 onPressed: () {
   /// Fill webOrigin only when your new origin is different than the app's origin
-  Restart.restartApp(webOrigin: '[your main route]');
+  /// Default value of 'iosNotificationTitle' is "Tap to open the app"
+  Restart.restartApp(webOrigin: '[your main route]', iosNotificationTitle: 'Click!');
 }
 ```
 
