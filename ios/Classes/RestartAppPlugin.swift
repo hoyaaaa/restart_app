@@ -32,7 +32,7 @@ public class RestartAppPlugin: NSObject, FlutterPlugin {
           if let args = call.arguments as? [String: Any] {
             title = args["iosNotificationTitle"] as? String
           }
-          self.sendNotification()
+          self.sendNotification(title: title)
         }
         exit(0)
       }
