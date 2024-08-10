@@ -30,7 +30,7 @@ public class RestartAppPlugin: NSObject, FlutterPlugin {
         if granted {
           var title: String? = nil
           NSLog("call.arguments: \(String(describing: call.arguments))")
-          if let args = call.arguments as? Dictionary<String, Any> {
+          if let args = call.arguments as? [String: Any] {
             NSLog("args: \(args)") 
              if let param = args["iosNotificationTitle"] as? String {
                title = param
