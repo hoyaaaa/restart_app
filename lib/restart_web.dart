@@ -38,7 +38,9 @@ class RestartWeb {
   Future<dynamic> handleMethodCall(MethodCall call) async {
     switch (call.method) {
       case 'restartApp':
-        return restart(call.arguments as String?);
+        final args = call.arguments as Map<String, dynamic>?;
+        final webOrigin = args["webOrigin"] as String?;
+        return restart(webOrigin);
       default:
         return 'false';
     }
