@@ -29,9 +29,9 @@ public class RestartAppPlugin: NSObject, FlutterPlugin {
       self.requestNotificationPermissions { granted in
         if granted {
           var title: String? = nil
-          if let args = call.arguments as? [String: Any] {
-              let title = args["iosNotificationTitle"] as? String
-              print("Received title: \(title ?? "nil")")
+          if let args = call.arguments as? Dictionary<String, Any>,
+             let param = args["iosNotificationTitle"] as? String {
+              title = param
           }
           self.sendNotification(title: title)
         }
