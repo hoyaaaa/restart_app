@@ -29,22 +29,13 @@ public class RestartAppPlugin: NSObject, FlutterPlugin {
       self.requestNotificationPermissions { granted in
         if granted {
           var title: String? = nil
-          NSLog("call.arguments: \(String(describing: call.arguments))")
-          if let args = call.arguments as? [String: Any] {
-            NSLog("args: \(args)") 
-             if let param = args["iosNotificationTitle"] as? String {
-               title = param
-               NSLog("iosNotificationTitle: \(param)")
-             } else {
-                NSLog("iosNotificationTitle not found or not a String")
-            }
-          } else {
-              NSLog("call.arguments is not a Dictionary")
+          if let args = call.arguments as? [String: Any],
+          let param = args["iosNotificationTitle"] as? String {
+            title = param
           }
           self.sendNotification(title: title)
         }
-        // HACK: Comment for testing
-        // exit(0)
+        exit(0)
       }
     }
   }
