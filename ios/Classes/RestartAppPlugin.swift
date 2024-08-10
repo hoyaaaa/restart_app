@@ -28,7 +28,7 @@ public class RestartAppPlugin: NSObject, FlutterPlugin {
     if call.method == "restartApp" {
       self.requestNotificationPermissions { granted in
         if granted {
-          let titie = nil
+          var titie: String? = nil
           if let args = call.arguments as? [String: Any] {
             title = args["iosNotificationTitle"] as? String
           }
