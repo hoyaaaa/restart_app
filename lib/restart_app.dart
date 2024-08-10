@@ -27,7 +27,7 @@ class Restart {
   /// the restart operation was successful. Otherwise, it returns false.
   static Future<bool> restartApp({String? webOrigin, String? iosNotificationTitle}) async =>
       (await _channel.invokeMethod('restartApp', {
-          webOrigin: webOrigin,
-          iosNotificationTitle: iosNotificationTitle,
+          'webOrigin': webOrigin,
+          'iosNotificationTitle': iosNotificationTitle,
         })) == "ok";
 }
